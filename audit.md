@@ -36,5 +36,22 @@ Debian/Ubuntu: `apt-get install auditd audispd-plugins`
 Red Hat/CentOS/Fedora: thường được cài đặt sẵn (package: audit and audit-libs)
 
 ##Configuration
+Các cấu hình của trình nền kiểm toán được sắp xếp bởi hai tập tin, một cho các daemon chính nó ( auditd.conf ) và một cho các quy tắc sử dụng bởi auditctl tool( audit.rules ).
+
+Như với hầu hết mọi thứ, sử dụng một khởi đầu sạch sẽ và không có bất kỳ quy tắc nạp. Quy tắc hoạt động có thể được xác định bằng cách chạy auditctl với tham số -l: ` auditctl -l `
+
+Thời gian để bắt đầu với giám sát vài thứ, hãy nói những file / etc / passwd. Chúng tôi đặt một 'watch' trên các file bằng cách định nghĩa path và cho phép để tìm kiếm:
+
+`auditctl -a exit,always -F path=/etc/passwd -F perm=wa`
+
+Bốn option:
+* r = read
+* w = write
+* x = execute
+* a = attribute change
+
+##Cấu hình đẩy log từ audit bằng rsyslog
 
 
+
+http://serverfault.com/questions/202044/sending-audit-logs-to-syslog-server
