@@ -1,17 +1,17 @@
-#Audit
+ï»¿#Audit
 Audit - a set of rules loaded in the kernel audit system
-##Muòc ğiìch 
-Audit coì thêÒ theo doŞi nhiêÌu loaòi sıò kiêòn ğêÒ giaìm saìt vaÌ kiêÒm toaìn hêò thôìng. Viì duò nhı:
+##MuÌ£c Ä‘iÌch 
+Audit coÌ thÃªÌ‰ theo doÌƒi nhiÃªÌ€u loaÌ£i sÆ°Ì£ kiÃªÌ£n Ä‘ÃªÌ‰ giaÌm saÌt vaÌ€ kiÃªÌ‰m toaÌn hÃªÌ£ thÃ´Ìng. ViÌ duÌ£ nhÆ°:
 * Audit file access and modification: 
 	<ul>
-  	<li>Xem ai truy câòp môòt tâòp tin cuò thêÒ</li>
-  	<li>Phaìt hiêòn thay ğôÒi traìi pheìp</li>
+  	<li>Xem ai truy cÃ¢Ì£p mÃ´Ì£t tÃ¢Ì£p tin cuÌ£ thÃªÌ‰</li>
+  	<li>PhaÌt hiÃªÌ£n thay Ä‘Ã´Ì‰i traÌi pheÌp</li>
   	</ul>	
-* Giaìm saìt cuôòc goòi hêò thôìng vaÌ caìc function
-* Phaìt hiêòn caìc bâìt thıõÌng nhı  crashing processes
-* Set tripwires cho muòc ğiìch phaìt hiêòn xâm nhâòp
-* Ghi caìc lêònh ğıõòc sıÒ duòng bõÒi ngıõÌi duÌng caì nhân
+* GiaÌm saÌt cuÃ´Ì£c goÌ£i hÃªÌ£ thÃ´Ìng vaÌ€ caÌc function
+* PhaÌt hiÃªÌ£n caÌc bÃ¢Ìt thÆ°Æ¡Ì€ng nhÆ°  crashing processes
+* Set tripwires cho muÌ£c Ä‘iÌch phaÌt hiÃªÌ£n xÃ¢m nhÃ¢Ì£p
+* Ghi caÌc lÃªÌ£nh Ä‘Æ°Æ¡Ì£c sÆ°Ì‰ duÌ£ng bÆ¡Ì‰i ngÆ°Æ¡Ì€i duÌ€ng caÌ nhÃ¢n
 
-##Caìc thaÌnh phâÌn
+##CaÌc thaÌ€nh phÃ¢Ì€n
 ###kernel:
 <li>**audit**</li>
