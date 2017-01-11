@@ -51,7 +51,47 @@ Bốn option:
 * a = attribute change
 
 ##Cấu hình đẩy log từ audit bằng rsyslog
+### Trên server
+####Cấu hình cho server nhận log theo UDP trên cổng 514
 
+Trên file /etc/rsyslog.conf untag 2 dòng như hình dưới
+<img>
 
+####Cấu hình vị trí lưu các log nhận được
+Thêm các dòng như sau vào file /etc/rsyslog.conf:
+
+```
+$template TmplAuth,"/data/log/%HOSTNAME%/%PROGRAMNAME%.log"
+Auth.*  ?TmplAuth
+*.*    ?TmplAuth
+& ~
+```
+<img>
+
+###Trên client
+####Cấu hình audit
+* Cấu hình audit tạo log ghi lại lịch sử người dùng
+Thêm đoạn sau vào trong /etc/audit/audit.rules
+```
+-a exit,always -F arch=b64 -S execve
+-a exit,always -F arch=b32 -S execve
+```
+Sau đó restart audit bằng lệnh: `/etc/init.d/auditd restart`
+
+* Chuyển log của audit log của rsyslog trong file `/var/log/syslog`
+Sửa file `/etc/audisp/plugins.d/syslog.conf `
+
+Sửa *active = no* sang *yes*
+<img>
+
+* Cấu hình file /etc/rsyslog.d/60-output.conf
+Thêm dòng sau
+<img>
+
+Cuối cùng log sẽ được lưu trên server theo đường dẫn đã được cấu hình.
+
+Ví dụ: `/data/log/ubuntu` *ubuntu* là tên hostname của máy client
+
+Log audit lưu trong file audispd.log
 
 http://serverfault.com/questions/202044/sending-audit-logs-to-syslog-server
