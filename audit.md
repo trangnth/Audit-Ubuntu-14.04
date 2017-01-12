@@ -98,7 +98,7 @@ Nếu là một mức nào đó thì sẽ là đẩy tất cả các 
 
 Nếu muốn bỏ một mức nào đó thì thêm `!` ở trước mức độ đó.
 
-@196.168.169.135:514 là địa chỉ server được đẩy đến bằng UDP theo cổng 514 (nếu là TCP thì trước địa chỉ server là @@).
+`@196.168.169.135:514` là địa chỉ server được đẩy đến bằng UDP theo cổng 514 (nếu là TCP thì trước địa chỉ server là @@).
 
 Restart rsyslog: `service rsyslog restart`
 
