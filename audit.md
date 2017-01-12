@@ -55,6 +55,7 @@ Bốn option:
 ####Cấu hình cho server nhận log theo UDP trên cổng 514
 
 Trên file /etc/rsyslog.conf untag 2 dòng như hình dưới
+
 <img src = "https://github.com/trangnth/Audit-Ubuntu-14.04/blob/master/img/rsyslog-conf-server-udp.png">
 
 ####Cấu hình vị trí lưu các log nhận được
