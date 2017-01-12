@@ -55,7 +55,7 @@ Bốn option:
 ####Cấu hình cho server nhận log theo UDP trên cổng 514
 
 Trên file /etc/rsyslog.conf untag 2 dòng như hình dưới
-<img>
+<img src = "https://github.com/trangnth/Audit-Ubuntu-14.04/blob/master/img/rsyslog-conf-server-udp.png">
 
 ####Cấu hình vị trí lưu các log nhận được
 Thêm các dòng như sau vào file /etc/rsyslog.conf:
@@ -66,7 +66,7 @@ Auth.*  ?TmplAuth
 *.*    ?TmplAuth
 & ~
 ```
-<img>
+<img src = "https://github.com/trangnth/Audit-Ubuntu-14.04/blob/master/img/rsyslog-conf-server.png">
 
 ###Trên client
 ####Cấu hình audit
@@ -78,20 +78,27 @@ Thêm đoạn sau vào trong /etc/audit/audit.rules
 ```
 Sau đó restart audit bằng lệnh: `/etc/init.d/auditd restart`
 
-* Chuyển log của audit log của rsyslog trong file `/var/log/syslog`
-Sửa file `/etc/audisp/plugins.d/syslog.conf `
-
-Sửa *active = no* sang *yes*
-<img>
+* Chuyển log của audit log sang rsyslog trong file `/var/log/syslog`
+Trong file `/etc/audisp/plugins.d/syslog.conf ` sửa *active = no* sang *yes*
+<img src = "https://github.com/trangnth/Audit-Ubuntu-14.04/blob/master/img/audit-conf.png">
 
 * Cấu hình file /etc/rsyslog.d/60-output.conf
-Thêm dòng sau
-<img>
+Thêm dòng sau:
+<img src = "https://github.com/trangnth/Audit-Ubuntu-14.04/blob/master/img/60-output.png">
+`*.*` dấu `*` thứ nhất thể hiện đẩy tất cả các nguồn sinh log, dấu `*` thứ 2 thể hiện tất cả các mức độ cảnh báo.
 
-Cuối cùng log sẽ được lưu trên server theo đường dẫn đã được cấu hình.
+@196.168.169.135:514 là địa chỉ server được đẩy đến bằng UDP theo cổng 514 (nếu là TCP thì trước địa chỉ server là @@).
+
+Cuối cùng các log sẽ được lưu trên server theo đường dẫn đã được cấu hình.
 
 Ví dụ: `/data/log/ubuntu` *ubuntu* là tên hostname của máy client
 
-Log audit lưu trong file audispd.log
+<img src = "https://github.com/trangnth/Audit-Ubuntu-14.04/blob/master/img/server2.png">
+
+Log audit lưu trong file audispd.log (tên chương trình trong syslog)
+
+<img src = "https://raw.github.com/trangnth/Audit-Ubuntu-14.04/master/img/server3.png">
+
+*Chú ý: ** ở đây là đẩy tất cả các log, log được lưu trong audispd trên server là log của một chương trình trên syslog được tạo ra từ audispd.
 
 http://serverfault.com/questions/202044/sending-audit-logs-to-syslog-server
