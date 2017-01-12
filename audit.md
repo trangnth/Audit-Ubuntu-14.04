@@ -79,19 +79,24 @@ Thêm đoạn sau vào trong /etc/audit/audit.rules
 Sau đó restart audit bằng lệnh: `/etc/init.d/auditd restart`
 
 * Chuyển log của audit log sang rsyslog trong file `/var/log/syslog`
+
 Trong file `/etc/audisp/plugins.d/syslog.conf ` sửa *active = no* sang *yes*
+
 <img src = "https://github.com/trangnth/Audit-Ubuntu-14.04/blob/master/img/audit-conf.png">
 
 * Cấu hình file /etc/rsyslog.d/60-output.conf
+
 Thêm dòng sau:
+
 <img src = "https://github.com/trangnth/Audit-Ubuntu-14.04/blob/master/img/60-output.png">
+
 `*.*` dấu `*` thứ nhất thể hiện đẩy tất cả các nguồn sinh log, dấu `*` thứ 2 thể hiện tất cả các mức độ cảnh báo.
 
 @196.168.169.135:514 là địa chỉ server được đẩy đến bằng UDP theo cổng 514 (nếu là TCP thì trước địa chỉ server là @@).
 
 Cuối cùng các log sẽ được lưu trên server theo đường dẫn đã được cấu hình.
 
-Ví dụ: `/data/log/ubuntu` *ubuntu* là tên hostname của máy client
+Ví dụ: `/data/log/ubuntu` "ubuntu" là tên hostname của máy client
 
 <img src = "https://github.com/trangnth/Audit-Ubuntu-14.04/blob/master/img/server2.png">
 
