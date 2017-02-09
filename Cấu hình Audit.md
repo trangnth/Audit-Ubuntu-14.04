@@ -49,6 +49,12 @@ Thêm dòng sau:
 
 <img src = "https://github.com/trangnth/Audit-Ubuntu-14.04/blob/master/img/60-output.png">
 
+Dấu `*` thứ nhất thể hiện đẩy log từ tất cả các nguồn sinh log, dấu `*` thứ 2 thể hiện log ở tất cả các mức độ cảnh báo.
+
+Nếu là một mức nào đó thì sẽ là đẩy tất cả các log có mức cảnh báo bằng mức đó và cao hơn.
+
+Nếu muốn bỏ một mức nào đó thì thêm `!` ở trước mức độ đó.
+
 `@196.168.169.135:514` là địa chỉ server được đẩy đến bằng UDP theo cổng 514 (nếu là TCP thì trước địa chỉ server là @@).
 
 Restart rsyslog: `service rsyslog restart`

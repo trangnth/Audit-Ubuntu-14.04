@@ -114,6 +114,7 @@ Log audit lưu trong file audispd.log (tên chương trình trong syslog)
 
 <img src = "https://raw.github.com/trangnth/Audit-Ubuntu-14.04/master/img/server3.png">
 
+
 **Chú ý:** trong bài này là đẩy tất cả các log, log được lưu trong audispd trên server là log của một chương trình trên syslog được tạo ra từ audispd.
 
 http://serverfault.com/questions/202044/sending-audit-logs-to-syslog-server
