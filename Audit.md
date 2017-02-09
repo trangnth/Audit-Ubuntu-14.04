@@ -8,7 +8,7 @@ Red Hat/CentOS/Fedora: thường được cài đặt sẵn (package: audit
 ##2. Configuration
 
 ###Cấu hình đẩy log từ audit bằng rsyslog
-##a. Trên server
+##Trên server
 ####Cấu hình cho server nhận log theo UDP trên cổng 514
 
 Trên file /etc/rsyslog.conf untag 2 dòng như hình dưới
@@ -26,7 +26,7 @@ Auth.*  ?TmplAuth
 ```
 <img src = "https://github.com/trangnth/Audit-Ubuntu-14.04/blob/master/img/rsyslog-conf-server.png">
 
-##b. Trên client
+##Trên client
 ####Cấu hình audit
 * Cấu hình audit tạo log ghi lại lịch sử người dùng
 Thêm đoạn sau vào trong /etc/audit/audit.rules
