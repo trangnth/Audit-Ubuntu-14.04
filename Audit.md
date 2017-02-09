@@ -34,13 +34,14 @@ Thêm đoạn sau vào trong /etc/audit/audit.rules
 -a exit,always -F arch=b64 -S execve
 -a exit,always -F arch=b32 -S execve
 ```
-Sau đó restart audit bằng lệnh: `/etc/init.d/auditd restart`
 
 * Chuyển log của audit log sang rsyslog trong file `/var/log/syslog`
 
 Trong file `/etc/audisp/plugins.d/syslog.conf ` sửa *active = no* sang *yes*
 
 <img src = "https://github.com/trangnth/Audit-Ubuntu-14.04/blob/master/img/audit-conf.png">
+
+Sau đó restart audit bằng lệnh: `/etc/init.d/auditd restart`
 
 ####Cấu hình rsyslog
 * Cấu hình file /etc/rsyslog.d/60-output.conf
