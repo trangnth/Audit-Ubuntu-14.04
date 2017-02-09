@@ -1,5 +1,5 @@
-﻿#Audit - Công cụ kiểm toán
-Audit - a set of rules loaded in the kernel audit system
+﻿#Audit 
+
 ##Mục đích 
 Audit có thể theo dõi nhiều loại sự kiện để giám sát và kiểm toán hệ thống. Ví dụ như:
 * Audit file access and modification: 
@@ -11,24 +11,6 @@ Audit có thể theo dõi nhiều loại sự kiện để giám sát v
 * Set tripwires cho mục đích phát hiện xâm nhập
 * Ghi các lệnh được sử dụng bởi người dùng cá nhân
 
-##Các thành phần
-###kernel:
-<li>**audit**: can thiệp vào kernel để bắt các sự kiện và cung cấp cho auditd</li>
-###binaties:
-<li>**auditd** : daemon để bắt các sự kiện và lưu trữ chúng (log file)</li>
-<li>**auditctl** : là một công cụ để kiểm soát hành vi của các daemon trên bay, các quy tắc bổ sung,..</li>
-<li>**audispd** : là một công cụ có thể được sử dụng để chuyển tiếp các thông báo sự kiện cho các ứng dụng khác thay vì viết chúng vào disk trong audit log</li>
-<li>**aureport** : là công cụ để tạo ra và xem báo cáo audit (auditd.log)</li>
-<li>**ausearch** : tìm kiếm và xem các sự kiện (auditd.log)</li>
-<li>**autrace** : là một lệnh có thể được sử dụng để theo dõi một quá trình, sử dụng thành phần audit trong kernel để theo dõi những chương trình</li>
-<li>**aulast** : similar to last, but instaed using audit framework</li>
-<li>**aulastlog** : similar to lastlog, also using audit framework instead</li>
-<li>**ausyscall** : map syscall ID and name</li>
-<li>**auvirt** : hiển thị thông tin audit liên quan đến  virtual machines</li>
-
-###Các tập tin: 
-<li>**audit.rules**: được sử dụng bởi auditctl để đọc những gì rules cần phải được sử dụng</li>
-<li>**auditd.conf**: file cấu hình của auditd</li>
 
 ##Installation
 Debian/Ubuntu: `apt-get install auditd audispd-plugins`
@@ -36,19 +18,6 @@ Debian/Ubuntu: `apt-get install auditd audispd-plugins`
 Red Hat/CentOS/Fedora: thường được cài đặt sẵn (package: audit and audit-libs)
 
 ##Configuration
-Các cấu hình của trình nền kiểm toán được sắp xếp bởi hai tập tin, một cho các daemon chính nó ( auditd.conf ) và một cho các quy tắc sử dụng bởi auditctl tool( audit.rules ).
-
-Như với hầu hết mọi thứ, sử dụng một khởi đầu sạch sẽ và không có bất kỳ quy tắc nạp. Quy tắc hoạt động có thể được xác định bằng cách chạy auditctl với tham số -l: ` auditctl -l `
-
-Thời gian để bắt đầu với giám sát vài thứ, hãy nói những file / etc / passwd. Chúng tôi đặt một 'watch' trên các file bằng cách định nghĩa path và cho phép để tìm kiếm:
-
-`auditctl -a exit,always -F path=/etc/passwd -F perm=wa`
-
-Bốn option:
-* r = read
-* w = write
-* x = execute
-* a = attribute change
 
 ##Cấu hình đẩy log từ audit bằng rsyslog
 ### Trên server
@@ -114,6 +83,5 @@ Log audit lưu trong file audispd.log (tên chương trình trong syslog)
 
 <img src = "https://raw.github.com/trangnth/Audit-Ubuntu-14.04/master/img/server3.png">
 
-**Chú ý:** trong bài này là đẩy tất cả các log, log được lưu trong audispd trên server là log của một chương trình trên syslog được tạo ra từ audispd.
 
-http://serverfault.com/questions/202044/sending-audit-logs-to-syslog-server
+*Tham khảo:* http://serverfault.com/questions/202044/sending-audit-logs-to-syslog-server
