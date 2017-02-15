@@ -120,7 +120,7 @@ Log audit lưu trong file audispd.log (tên chương trình trong syslog)
 
 Chẳng hạn khi ssh đến client và gõ một lệnh `tail -40 /var/log/syslog` log sẽ được tạo ra như hình dưới đây:
 
-<img src = "log">
+<img src = "https://github.com/trangnth/Audit-Ubuntu-14.04/blob/master/img/LOG.png">
 
 Thông thường, khi chạy một lệnh log sẽ được tạo ra với 5 type (SYSCALL, EXECVE, CWD, PATH, EOE)
 
