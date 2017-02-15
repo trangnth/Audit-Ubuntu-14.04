@@ -32,10 +32,10 @@ Audit có thể theo dõi nhiều loại sự kiện để giám sát v
 </ul>
 
 ###Các tập tin: 
-<ul>
+
 <li>**audit.rules**: được sử dụng bởi auditctl để đọc những gì rules cần phải được sử dụng</li>
 <li>**auditd.conf**: file cấu hình của auditd</li>
-</ul>
+
 
 ##2. Installation
 Debian/Ubuntu: `apt-get install auditd audispd-plugins`
@@ -62,7 +62,7 @@ Bốn option:
 ##Trên server
 ####Cấu hình cho server nhận log theo UDP trên cổng 514
 
-Trên file /etc/rsyslog.conf untag 2 dòng như hình dưới
+Trên file /etc/rsyslog.conf bỏ dấu `#` 2 dòng như hình dưới
 
 <img src = "https://github.com/trangnth/Audit-Ubuntu-14.04/blob/master/img/rsyslog-conf-server-udp.png">
 
@@ -80,6 +80,7 @@ Auth.*  ?TmplAuth
 ##Trên client
 ####Cấu hình audit
 * Cấu hình audit tạo log ghi lại lịch sử người dùng
+
 Thêm đoạn sau vào trong /etc/audit/audit.rules
 ```
 -a exit,always -F arch=b64 -S execve
@@ -117,5 +118,20 @@ Log audit lưu trong file audispd.log (tên chương trình trong syslog)
 
 <img src = "https://raw.github.com/trangnth/Audit-Ubuntu-14.04/master/img/server3.png">
 
+Chẳng hạn khi ssh đến client và gõ một lệnh `tail -40 /var/log/syslog` log sẽ được tạo ra như hình dưới đây:
 
-*Tham khảo:* http://serverfault.com/questions/202044/sending-audit-logs-to-syslog-server
+<img src = "log">
+
+Thông thường, khi chạy một lệnh log sẽ được tạo ra với 5 type (SYSCALL, EXECVE, CWD, PATH, EOE)
+
+- Dòng `type=SYSCALL` chứa các thông tin về người dùng (ví dụ uid - User ID, pid - Process ID,  gid - Group ID,...)
+- Dòng `type=EXECVE` cho biết lệnh đã được chạy => `argc=3 a0="tail" a1="-40" a2="/var/log/syslog"`
+- Dòng `type=CWD` cho biết vị trí gõ lệnh => lệnh được thao tác trên thư mục `/root`
+
+Chi tiết hơn về các tham số trên http://manpages.ubuntu.com/manpages/precise/man8/auditctl.8.html
+
+##Tham khảo:
+http://serverfault.com/questions/202044/sending-audit-logs-to-syslog-server
+
+https://linux-audit.com/configuring-and-auditing-linux-systems-with-audit-daemon/
+
