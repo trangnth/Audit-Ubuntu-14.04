@@ -1,7 +1,7 @@
-﻿#Audit 
+# Audit 
 
-##1. Overview
-##Mục đích 
+## 1. Overview
+### Mục đích 
 Audit có thể theo dõi nhiều loại sự kiện để giám sát và kiểm toán hệ thống. Ví dụ như:
 * Audit file access and modification: 
 	<ul>
@@ -12,7 +12,7 @@ Audit có thể theo dõi nhiều loại sự kiện để giám sát v
 * Set tripwires cho mục đích phát hiện xâm nhập
 * Ghi các lệnh được sử dụng bởi người dùng cá nhân
 
-###Các thành phần
+### Các thành phần
 - **kernel:**
 <ul>
 <li>**audit**: can thiệp vào kernel để bắt các sự kiện và cung cấp cho auditd</li>
@@ -31,18 +31,18 @@ Audit có thể theo dõi nhiều loại sự kiện để giám sát v
 <li>**auvirt** : hiển thị thông tin audit liên quan đến  virtual machines</li>
 </ul>
 
-###Các tập tin: 
+### Các tập tin: 
 
 <li>**audit.rules**: được sử dụng bởi auditctl để đọc những gì rules cần phải được sử dụng</li>
 <li>**auditd.conf**: file cấu hình của auditd</li>
 
 
-##2. Installation
+## 2. Installation
 Debian/Ubuntu: `apt-get install auditd audispd-plugins`
 
 Red Hat/CentOS/Fedora: thường được cài đặt sẵn (package: audit and audit-libs)
 
-##3. Configuration
+## 3. Configuration
 
 Các cấu hình của trình nền kiểm toán được sắp xếp bởi hai tập tin, một cho các daemon chính nó ( auditd.conf ) và một cho các quy tắc sử dụng bởi auditctl tool( audit.rules ).
 
@@ -58,15 +58,15 @@ Bốn option:
 * x = execute
 * a = attribute change
 
-###Cấu hình đẩy log từ audit bằng rsyslog
-##Trên server
-####Cấu hình cho server nhận log theo UDP trên cổng 514
+### Cấu hình đẩy log từ audit bằng rsyslog
+## Trên server
+#### Cấu hình cho server nhận log theo UDP trên cổng 514
 
 Trên file /etc/rsyslog.conf bỏ dấu `#` 2 dòng như hình dưới
 
 <img src = "https://github.com/trangnth/Audit-Ubuntu-14.04/blob/master/img/rsyslog-conf-server-udp.png">
 
-####Cấu hình vị trí lưu các log nhận được
+#### Cấu hình vị trí lưu các log nhận được
 Thêm các dòng như sau vào file /etc/rsyslog.conf:
 
 ```
@@ -77,8 +77,8 @@ Auth.*  ?TmplAuth
 ```
 <img src = "https://github.com/trangnth/Audit-Ubuntu-14.04/blob/master/img/rsyslog-conf-server.png">
 
-##Trên client
-####Cấu hình audit
+## Trên client
+#### Cấu hình audit
 * Cấu hình audit tạo log ghi lại lịch sử người dùng
 
 Thêm đoạn sau vào trong /etc/audit/audit.rules
@@ -95,7 +95,7 @@ Trong file `/etc/audisp/plugins.d/syslog.conf ` sửa *active = no* sang *yes*
 
 Sau đó restart audit bằng lệnh: `/etc/init.d/auditd restart`
 
-####Cấu hình rsyslog
+#### Cấu hình rsyslog
 * Cấu hình file /etc/rsyslog.d/60-output.conf
 
 Thêm dòng sau:
@@ -106,7 +106,7 @@ Thêm dòng sau:
 
 Restart rsyslog: `service rsyslog restart`
 
-###Kết quả:
+### Kết quả:
 
 Cuối cùng các log sẽ được lưu trên server theo đường dẫn đã được cấu hình.
 
@@ -130,7 +130,7 @@ Thông thường, khi chạy một lệnh log sẽ được tạo ra với 5 typ
 
 Chi tiết hơn về các tham số trên http://manpages.ubuntu.com/manpages/precise/man8/auditctl.8.html
 
-##Tham khảo:
+## Tham khảo:
 http://serverfault.com/questions/202044/sending-audit-logs-to-syslog-server
 
 https://linux-audit.com/configuring-and-auditing-linux-systems-with-audit-daemon/
