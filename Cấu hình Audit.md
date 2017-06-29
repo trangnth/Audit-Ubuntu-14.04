@@ -6,7 +6,8 @@ Audit có thể theo dõi nhiều loại sự kiện để giám sát v
 * Audit file access and modification: 
 	<ul>
   	<li>Xem ai truy cập một tập tin cụ thể</li>
-  	<li>Phát hiện thay đổi trái phép</li></ul>	
+  	<li>Phát hiện thay đổi trái phép</li>
+	</ul>	
 * Giám sát cuộc gọi hệ thống và các function
 * Phát hiện các bất thường như  crashing processes
 * Set tripwires cho mục đích phát hiện xâm nhập
@@ -15,26 +16,26 @@ Audit có thể theo dõi nhiều loại sự kiện để giám sát v
 ### Các thành phần
 - **kernel:**
 <ul>
-<li>**audit**: can thiệp vào kernel để bắt các sự kiện và cung cấp cho auditd</li>
+<li>audit: can thiệp vào kernel để bắt các sự kiện và cung cấp cho auditd</li>
 </ul>
 - **binaties:**
 <ul>
-<li>**auditd** : daemon để bắt các sự kiện và lưu trữ chúng (log file)</li>
-<li>**auditctl** : là một công cụ để kiểm soát hành vi của các daemon trên bay, các quy tắc bổ sung,..</li>
-<li>**audispd** : là một công cụ có thể được sử dụng để chuyển tiếp các thông báo sự kiện cho các ứng dụng khác thay vì viết chúng vào disk trong audit log</li>
-<li>**aureport** : là công cụ để tạo ra và xem báo cáo audit (auditd.log)</li>
-<li>**ausearch** : tìm kiếm và xem các sự kiện (auditd.log)</li>
-<li>**autrace** : là một lệnh có thể được sử dụng để theo dõi một quá trình, sử dụng thành phần audit trong kernel để theo dõi những chương trình</li>
-<li>**aulast** : similar to last, but instaed using audit framework</li>
-<li>**aulastlog** : similar to lastlog, also using audit framework instead</li>
-<li>**ausyscall** : map syscall ID and name</li>
-<li>**auvirt** : hiển thị thông tin audit liên quan đến  virtual machines</li>
+<li>auditd : daemon để bắt các sự kiện và lưu trữ chúng (log file)</li>
+<li>auditctl : là một công cụ để kiểm soát hành vi của các daemon trên bay, các quy tắc bổ sung,..</li>
+<li>audispd : là một công cụ có thể được sử dụng để chuyển tiếp các thông báo sự kiện cho các ứng dụng khác thay vì viết chúng vào disk trong audit log</li>
+<li>aureport : là công cụ để tạo ra và xem báo cáo audit (auditd.log)</li>
+<li>ausearch : tìm kiếm và xem các sự kiện (auditd.log)</li>
+<li>autrace : là một lệnh có thể được sử dụng để theo dõi một quá trình, sử dụng thành phần audit trong kernel để theo dõi những chương trình</li>
+<li>aulast : similar to last, but instaed using audit framework</li>
+<li>aulastlog : similar to lastlog, also using audit framework instead</li>
+<li>ausyscall : map syscall ID and name</li>
+<li>auvirt : hiển thị thông tin audit liên quan đến  virtual machines</li>
 </ul>
-
+	
 ### Các tập tin: 
 
-<li>**audit.rules**: được sử dụng bởi auditctl để đọc những gì rules cần phải được sử dụng</li>
-<li>**auditd.conf**: file cấu hình của auditd</li>
+<li>audit.rules: được sử dụng bởi auditctl để đọc những gì rules cần phải được sử dụng</li>
+<li>auditd.conf: file cấu hình của auditd</li>
 
 
 ## 2. Installation
