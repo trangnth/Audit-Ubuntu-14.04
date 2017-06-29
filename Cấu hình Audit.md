@@ -14,11 +14,11 @@ Audit có thể theo dõi nhiều loại sự kiện để giám sát v
 * Ghi các lệnh được sử dụng bởi người dùng cá nhân
 
 ### Các thành phần
-- **kernel:**
+* kernel:
 <ul>
 <li>audit: can thiệp vào kernel để bắt các sự kiện và cung cấp cho auditd</li>
 </ul>
-- **binaties:**
+* binaties:
 <ul>
 <li>auditd : daemon để bắt các sự kiện và lưu trữ chúng (log file)</li>
 <li>auditctl : là một công cụ để kiểm soát hành vi của các daemon trên bay, các quy tắc bổ sung,..</li>
